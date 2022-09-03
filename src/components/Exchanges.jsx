@@ -1,10 +1,9 @@
 import React from 'react'
 
-
 const Exchanges = props => {
   return (
-    <div>Exchanges</div>
+    <div>No Exchanges yet</div>
   )
 }
 
-export default Exchanges
+export default Exchanges;
