@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
-import { Col, Row, Typography, Select } from 'antd';
+import { Col, Row, Typography, Select, Image } from 'antd';
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
@@ -13,7 +13,7 @@ import {
   TrophyOutlined,
   NumberOutlined,
   ThunderboltOutlined,
-  CheckOutlined,
+  CheckOutlined
 } from '@ant-design/icons';
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi';
 import LineChart from './LineChart';
@@ -28,20 +28,21 @@ const CryptoDetails = () => {
   const { data, isFetching } = useGetCryptoDetailsQuery(uuid);
   const { data: coinHistory } = useGetCryptoHistoryQuery({uuid, timePeriod});
   const cryptoDetails = data?.data?.coin;
-
-  
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
   
   const stats = [
     {
       title: 'Price to USD',
-      value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`,
+      value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price, {
+        precision: 12,  
+        decimalSeparator: ","
+      })}`,
       icon: <DollarCircleOutlined />,
     },
     { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined /> },
     {
       title: '24h Volume',
-      value: `$ ${cryptoDetails?.volume && millify(cryptoDetails?.volume)}`,
+      value: `$ ${cryptoDetails?.volume && millify(cryptoDetails.volume)}`,
       icon: <ThunderboltOutlined />,
     },
     {
@@ -103,15 +104,17 @@ const CryptoDetails = () => {
   return (
     <Col className="coin-detail-container">
       <Col className="coin-heading-container">
+        <Image src={cryptoDetails.iconUrl} width='100px' height='100px' />
         <Title level={2} className="coin-name">
-          {cryptoDetails.name}({cryptoDetails.slug}) Price
+         {cryptoDetails.name} 
+         ({cryptoDetails.symbol}) Price 
         </Title>
         <p>{cryptoDetails.name} live price in US Dollar (USD). View value statistics, market cap and supply.</p>
       </Col>
       <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimeperiod(value)}>
         {time.map((date) => <Option key={date}>{date}</Option>)}
       </Select>
-      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
+      <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} timePeriod={timePeriod}/>
       <Col className="stats-container">
         <Col className="coin-value-statistics">
           <Col className="coin-value-statistics-heading">

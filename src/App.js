@@ -5,6 +5,7 @@ import { Layout, Typography, Space, Divider } from 'antd';
 import {
   Navbar,
   Exchanges,
+  About,
   Homepage,
   Cryptocurrencies,
   CryptoDetails,
@@ -23,7 +24,7 @@ const App = () => {
           <div className="routes">
             <Routes>
               <Route exact path="/" element={<Homepage />} />
-              <Route exact path="/exchanges" element={<Exchanges />} />
+              <Route exact path="/about" element={<About />} />
               <Route
                 exact
                 path="/cryptocurrencies"
@@ -41,19 +42,17 @@ const App = () => {
             level={5}
             style={{ color: 'white', textAlign: 'center' }}
           >
-            Cryptoverse (MVP) build Alpha 0.01<br />
+            Cryptoverse<br />
           </Typography.Title>
           <Space>
             <Link to="/">Home</Link>
-            <Link to="/exchanges">Exchanges</Link>
+            <Link to="/about">About</Link>
             <Link to="/news">News</Link>
           </Space>
-          <Divider />
             <Typography.Text 
             style={{ color: 'white', textAlign: 'center' }}
             italic='true'
-
-            >John W Driscoll All Rights Reserved Copyright 2022</Typography.Text>
+            >John W Driscoll  - Cryptoverse (MVP)</Typography.Text>
         </div>
       </div>
     </div>

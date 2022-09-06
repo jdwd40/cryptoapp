@@ -377,3 +377,9 @@ width: 70%;
     padding: 20px;
     align-items: center;
 }
+
+.news-photo {
+    color: red;
+    padding: 5px;
+    border-radius: 50%;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Select, Typography, Row, Col, Avatar, Card } from 'antd';
+import { Select, Typography, Row, Col, Avatar, Card, Image } from 'antd';
 import moment from 'moment';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
@@ -20,6 +20,7 @@ const News = ({ simplified }) => {
 
   return (
     <Row gutter={[24, 24]}>
+      <Title level={2}>Cryptocurreny News</Title>
       {!simplified && (
         <Col span={24}>
           <Select
@@ -41,7 +42,10 @@ const News = ({ simplified }) => {
             <a href={news.url} target="_blank" rel="noreferrer">
               <div className="news-image-container">
                 <Title className="news-title" level={4}>{news.name}</Title>
-                <img src={news?.image?.thumbnail?.contentUrl || demoImage} alt="" />
+                <div className='news-photo'>
+
+                <Image src={news?.image?.thumbnail?.contentUrl || demoImage} alt="" />
+                </div>
               </div>
               <p>{news.description.length > 100 ? `${news.description.substring(0, 100)}...` : news.description}</p>
               <div className="provider-container">

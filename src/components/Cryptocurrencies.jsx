@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import millify from 'millify';
 import { Link } from 'react-router-dom';
-import { Card, Row, Col, Input } from 'antd';
-
+import { Card, Row, Col, Input, Typography } from 'antd';
 import { useGetCryptosQuery } from '../services/cryptoApi';
 // import Loader from './Loader';
 
@@ -11,6 +10,7 @@ const Cryptocurrencies = ({ simplified }) => {
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState();
   const [searchTerm, setSearchTerm] = useState('');
+  const {Text, Title} = Typography;
 
   useEffect(() => {
     setCryptos(cryptosList?.data?.coins);
@@ -25,12 +25,17 @@ const Cryptocurrencies = ({ simplified }) => {
   return (
     <>
       {!simplified && (
+        <>
+        <Title level={2}>
+          Top 50 Cryptocurrences in the World.
+        </Title>
         <div className="search-crypto">
           <Input
             placeholder="Search Cryptocurrency"
             onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
           />
         </div>
+        </>
       )}
       <Row gutter={[32, 32]} className="crypto-card-container">
         {cryptos?.map((currency) => (

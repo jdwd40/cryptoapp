@@ -55,9 +55,9 @@ export const Homepage = () => {
 
       <div className="home-heading-container">
         <Title level={2} className="home-title">
-          Top 10 Cryptocurrencies in the world
+          Top 10 Cryptocurrencies in the World
         </Title>
-        <Title level={3} className="show-more">
+        <Title level={5} className="show-more">
           <Link to="/cryptocurrencies">show more</Link>
         </Title>
       </div>
