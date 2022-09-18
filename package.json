@@ -12,6 +12,7 @@
     "antd": "^4.22.8",
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",
+    "gatsby": "^4.23.0",
     "html-react-parser": "^3.0.4",
     "millify": "^5.0.0",
     "moment": "^2.29.4",
