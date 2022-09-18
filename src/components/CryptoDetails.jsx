@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
-import { Col, Row, Typography, Select, Image } from 'antd';
+import { Col, Row, Typography, Select, Image, Button } from 'antd';
 import {
   MoneyCollectOutlined,
   DollarCircleOutlined,
   FundOutlined,
   ExclamationCircleOutlined,
   StopOutlined,
-  TypographyOutlined,
   TrophyOutlined,
   NumberOutlined,
   ThunderboltOutlined,
@@ -17,7 +16,6 @@ import {
 } from '@ant-design/icons';
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi';
 import LineChart from './LineChart';
-import Chart from 'chart.js/auto';
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -114,6 +112,7 @@ const CryptoDetails = () => {
       <Select defaultValue="7d" className="select-timeperiod" placeholder="Select Timeperiod" onChange={(value) => setTimeperiod(value)}>
         {time.map((date) => <Option key={date}>{date}</Option>)}
       </Select>
+      <Button href="/cryptocurrencies" type="danger" className='crypto-button'>Top 50 Crypto's</Button>
       <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} timePeriod={timePeriod}/>
       <Col className="stats-container">
         <Col className="coin-value-statistics">

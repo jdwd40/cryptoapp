@@ -1,6 +1,6 @@
 import React from 'react';
 import millify from 'millify';
-import { Typography, Row, Col, Statistic } from 'antd';
+import { Typography, Row, Col, Statistic, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import {Cryptocurrencies, News} from '../components';
@@ -58,7 +58,7 @@ export const Homepage = () => {
           Top 10 Cryptocurrencies in the World
         </Title>
         <Title level={5} className="show-more">
-          <Link to="/cryptocurrencies">show more</Link>
+          <Link to="/cryptocurrencies"><Button type="danger">show more</Button></Link>
         </Title>
       </div>
       <Cryptocurrencies simplified={true} />

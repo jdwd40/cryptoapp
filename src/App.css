@@ -1,11 +1,11 @@
 
 :root{
-    --text-primary:#000;
+    --text-primary:rgb(165, 159, 159);
     --bgPrimary:#fff;
    --bgSecondary: #F9F9F9;
    --pink: #0071bd;
    --light-blue: #e6f7ff;
-   --border: #d9d9d9;
+   --border: #bdbbbb;
 }
 
 * {
@@ -348,13 +348,16 @@ width: 70%;
 }
 .show-more{
     margin-top: 0px !important;
+    color: #bf0413;
 }
 .exchange-image{
     margin: 0px 10px !important;
 }
 .search-crypto{
-    margin: 20px auto 30px auto;
     width: 250px;
+    margin-bottom: 10px;
+
+   
 }
 .crypto-card-container{
     min-height: 65vh !important;
@@ -383,3 +386,28 @@ width: 70%;
     padding: 5px;
     border-radius: 50%;
 }
+
+.heading {
+    background-color: #595959;
+    color: white !important;
+    padding: 5px 5px 5px;
+    border-radius: 3%;
+}
+
+.home-title {
+    background-color: #595959;
+    color: white !important;
+    padding: 5px 5px 5px;
+    border-radius: 3%;
+}
+
+.news-button {
+float: right;
+margin-top: 20px;
+}
+
+.crypto-button {
+    float: right;
+    margin-top: 5px;
+    }
+    

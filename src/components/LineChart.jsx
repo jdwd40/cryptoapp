@@ -1,18 +1,14 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Col, Row, Typography } from 'antd';
+import Chart from 'chart.js/auto';
 
 const { Title } = Typography;
 
 const LineChart = ({ coinHistory, currentPrice, coinName, timePeriod }) => {
-  console.log('coinHistory: ', coinHistory);
-  console.log('timePeriod: ', timePeriod);
-
   const coinPrice = [];
   const coinTimeStamp = [];
-
   const tpFlag = timePeriod.slice(-1);
-  console.log('tpFlag: ', tpFlag);
 
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory?.data?.history[i].price);
@@ -34,7 +30,6 @@ const LineChart = ({ coinHistory, currentPrice, coinName, timePeriod }) => {
     }
   }
 
-  console.log('coinTimeStamp: ', coinTimeStamp);
   const data = {
     labels: coinTimeStamp,
     datasets: [

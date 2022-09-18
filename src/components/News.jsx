@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Select, Typography, Row, Col, Avatar, Card, Image } from 'antd';
+import { Select, Typography, Row, Col, Avatar, Card, Image, Button } from 'antd';
 import moment from 'moment';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
@@ -20,7 +20,7 @@ const News = ({ simplified }) => {
 
   return (
     <Row gutter={[24, 24]}>
-      <Title level={2}>Cryptocurreny News</Title>
+      <Title level={2} className="heading">Cryptocurreny News</Title>
       {!simplified && (
         <Col span={24}>
           <Select
@@ -34,6 +34,7 @@ const News = ({ simplified }) => {
             <Option value="Cryptocurency">Cryptocurrency</Option>
             {data?.data?.coins?.map((currency) => <Option value={currency.name}>{currency.name}</Option>)}
           </Select>
+          <Button href="/cryptocurrencies" type="danger" className='crypto-button'>Top 50 Crypto's</Button>
         </Col>
       )}
       {cryptoNews.value.map((news, i) => (
